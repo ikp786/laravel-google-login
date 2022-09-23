@@ -129,4 +129,13 @@ class StudentController extends Controller
 
         return response()->json(['success'=>'Status change successfully.']);
     }
+
+    public function changeStatusTest(Request $request)
+    {
+        $data = Student::find($request->id);
+        $data->status = $request->status;
+        $data->save();
+
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }
